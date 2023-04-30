@@ -22,7 +22,7 @@
     functionality - Anyone who has logged in can comment and reply. But only owner of the comment can edit, delete their
 		comment. Anyone can upvote and downvote comments.
     
-		comments schema - _id, commentId, postId, authorId, authorName, createdAt, commentText, likes
+		comments schema - _id, commentId, postId, authorId, authorName, createdAt, commentText, likes, parentCommentId
 
 		Enhancements - sort comments by most upvoted, search comments by commentText. Collapse thread, expand thread of comments
 
