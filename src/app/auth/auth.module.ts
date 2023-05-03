@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthComponent } from './auth.component';
 import { Routes, RouterModule } from '@angular/router'; 
-import { SharedModule } from '../shared/shared.module'
+import { SharedModule } from '../shared/shared.module';
+import { RegisterComponent } from './register/register.component'
 const routes: Routes = [
   {
     path: '',
@@ -12,7 +13,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AuthComponent
+    AuthComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
