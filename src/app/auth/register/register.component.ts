@@ -51,4 +51,7 @@ export class RegisterComponent implements OnInit {
       this.notificationService.error('Error', 'Invalid Form');
     }
   }
+  async goToLoginPage() {
+    this.router.navigateByUrl('auth')
+  }
 }
