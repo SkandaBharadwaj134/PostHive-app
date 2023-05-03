@@ -8,6 +8,9 @@ class AuthController {
     async login(req, res, next) {
         try {
             const response = await authService.login( req.body )
+            if(response.message){
+                return res.status(404).send(response)
+            }
             res.send(response)
         } catch(e) {
             next(e)
@@ -17,6 +20,9 @@ class AuthController {
     async register(req, res, next) {
         try {
             const response = await authService.register( req.body )
+            if(response.message){
+                return res.status(409).send(response)
+            }
             res.send(response)
         } catch(e) {
             next(e)

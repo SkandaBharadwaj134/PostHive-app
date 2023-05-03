@@ -1,2 +1,53 @@
-<p>auth works!</p>
-<button nz-button nzType="primary" nzDanger="">sdf</button>
+<div class="center">
+    <h1>Login</h1>
+    <button nz-button nzType="link" (click)="goToRegisterPage()">Not a member yet? Register Now </button>
+    <form nz-form [formGroup]="loginForm">
+          <nz-form-item>
+            <nz-form-label nzRequired nzFor="phoneNumber"
+              >Phone Number</nz-form-label
+            >
+            <nz-form-control
+              [nzSm]="24"
+              [nzXs]="24"
+              nzErrorTip="Please enter a 10 digit Phone number"
+            >
+              <input
+                nz-input
+                formControlName="phoneNumber"
+                [(ngModel)]="phone"
+                id="phoneNumber"
+                [minlength]="10"
+                [maxlength]="10"
+              />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control [nzSpan]="24">
+              <button nz-button nzType="primary" (click)="sendOtp(phone)">Send OTP</button>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label nzRequired nzFor="otp"
+              >OTP</nz-form-label
+            >
+            <nz-form-control
+              [nzSm]="24"
+              [nzXs]="24"
+              nzErrorTip="Please enter a 4 digit OTP"
+            >
+              <input
+                nz-input
+                formControlName="otp"
+                id="otp"
+                [minlength]="4"
+                [maxlength]="4"
+              />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control [nzSpan]="24">
+              <button nz-button nzType="primary" (click)="submitLoginForm()">Login</button>
+            </nz-form-control>
+          </nz-form-item>
+    </form>
+</div>

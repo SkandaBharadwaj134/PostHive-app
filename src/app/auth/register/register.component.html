@@ -1,0 +1,40 @@
+<div class="center">
+    <h1>Register</h1>
+    <form nz-form [formGroup]="registerForm">
+        <nz-form-item>
+            <nz-form-label nzRequired nzFor="name"
+              >Name</nz-form-label
+            >
+            <nz-form-control
+              [nzSm]="24"
+              [nzXs]="24"
+              nzErrorTip="Please enter your name!"
+            >
+              <input nz-input formControlName="name" id="name" />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label nzRequired nzFor="phoneNumber"
+              >Phone Number</nz-form-label
+            >
+            <nz-form-control
+              [nzSm]="24"
+              [nzXs]="24"
+              nzErrorTip="Please enter a 10 digit Phone number"
+            >
+              <input
+                nz-input
+                formControlName="phoneNumber"
+                id="phoneNumber"
+                [minlength]="10"
+                [maxlength]="10"
+              />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control [nzSpan]="24">
+              <button nz-button nzType="primary" (click)="submitRegisterForm()">Register</button>
+            </nz-form-control>
+          </nz-form-item>
+    </form>
+</div>

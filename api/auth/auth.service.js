@@ -2,7 +2,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 
-let otpCounterRemaining = 4;
+// let otpCounterRemaining = 4;
 
 class AuthService {
   constructor() {}
@@ -18,13 +18,13 @@ class AuthService {
       }
       const loginTemplate = {
         loginOTP: Math.floor(Math.random() * 9000) + 1000,
-        otpCounterRemaining: otpCounterRemaining--,
+        // otpCounterRemaining: otpCounterRemaining--,
       };
-      if (loginTemplate.otpCounterRemaining == 0) {
-        return {
-          message: "Maximum OTPs send limit reached",
-        };
-      }
+      // if (loginTemplate.otpCounterRemaining <= 0) {
+      //   return {
+      //     message: "Maximum OTPs send limit reached",
+      //   };
+      // }
       await usersCollection.findOneAndUpdate(
         { phone },
         {
@@ -86,7 +86,7 @@ class AuthService {
 
   async register(input) {
     try {
-      const { phone, username } = input;
+      const { phone, name } = input;
       const usersCollection = mongoose.connection.db.collection("users");
       const exists = await usersCollection.find({ phone }).toArray();
       if (exists.length != 0) {
@@ -97,7 +97,7 @@ class AuthService {
 
       const registerTemplate = {
         phone: phone,
-        name: username,
+        name: name,
         userId: (Math.floor(Math.random() * 900000) + 100000).toString(),
         status: true,
       };
