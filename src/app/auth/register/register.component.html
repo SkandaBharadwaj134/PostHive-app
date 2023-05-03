@@ -1,27 +1,33 @@
+<body>
 <div class="center">
     <h1>Register</h1>
+    <button nz-button nzType="link" (click)="goToLoginPage()" class="registerLink">Back to Login Page </button>
+    <br>
     <form nz-form [formGroup]="registerForm">
         <nz-form-item>
             <nz-form-label nzRequired nzFor="name"
-              >Name</nz-form-label
+             class="name" >Name</nz-form-label
             >
             <nz-form-control
               [nzSm]="24"
               [nzXs]="24"
               nzErrorTip="Please enter your name!"
             >
+            <div class="txt_field">
               <input nz-input formControlName="name" id="name" />
+            </div>
             </nz-form-control>
           </nz-form-item>
           <nz-form-item>
             <nz-form-label nzRequired nzFor="phoneNumber"
-              >Phone Number</nz-form-label
+             class="phone" >Phone Number</nz-form-label
             >
             <nz-form-control
               [nzSm]="24"
               [nzXs]="24"
               nzErrorTip="Please enter a 10 digit Phone number"
             >
+            <div class="txt_field">
               <input
                 nz-input
                 formControlName="phoneNumber"
@@ -29,12 +35,14 @@
                 [minlength]="10"
                 [maxlength]="10"
               />
+            </div>
             </nz-form-control>
           </nz-form-item>
           <nz-form-item>
             <nz-form-control [nzSpan]="24">
-              <button nz-button nzType="primary" (click)="submitRegisterForm()">Register</button>
+              <button nz-button nzType="primary" (click)="submitRegisterForm()" class="registerButton">Register</button>
             </nz-form-control>
           </nz-form-item>
     </form>
 </div>
+</body>

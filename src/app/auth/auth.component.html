@@ -1,16 +1,20 @@
+<body>
 <div class="center">
     <h1>Login</h1>
-    <button nz-button nzType="link" (click)="goToRegisterPage()">Not a member yet? Register Now </button>
+    <button nz-button nzType="link" (click)="goToRegisterPage()" class="registerLink">Not a member yet? Register Now </button>
+    <br>
+    <br>
     <form nz-form [formGroup]="loginForm">
           <nz-form-item>
             <nz-form-label nzRequired nzFor="phoneNumber"
-              >Phone Number</nz-form-label
+              class="phone">Phone Number</nz-form-label
             >
             <nz-form-control
               [nzSm]="24"
               [nzXs]="24"
               nzErrorTip="Please enter a 10 digit Phone number"
             >
+            <div class="txt_field">
               <input
                 nz-input
                 formControlName="phoneNumber"
@@ -19,22 +23,24 @@
                 [minlength]="10"
                 [maxlength]="10"
               />
+            </div>
             </nz-form-control>
           </nz-form-item>
           <nz-form-item>
             <nz-form-control [nzSpan]="24">
-              <button nz-button nzType="primary" (click)="sendOtp(phone)">Send OTP</button>
+              <button nz-button nzType="primary" (click)="sendOtp(phone)" class="otpButton">Send OTP</button>
             </nz-form-control>
           </nz-form-item>
           <nz-form-item>
             <nz-form-label nzRequired nzFor="otp"
-              >OTP</nz-form-label
+              class="otp">OTP</nz-form-label
             >
             <nz-form-control
               [nzSm]="24"
               [nzXs]="24"
               nzErrorTip="Please enter a 4 digit OTP"
             >
+            <div class="txt_field">
               <input
                 nz-input
                 formControlName="otp"
@@ -42,12 +48,14 @@
                 [minlength]="4"
                 [maxlength]="4"
               />
+            </div>
             </nz-form-control>
           </nz-form-item>
           <nz-form-item>
             <nz-form-control [nzSpan]="24">
-              <button nz-button nzType="primary" (click)="submitLoginForm()">Login</button>
+              <button nz-button nzType="primary" (click)="submitLoginForm()" class="loginButton">Login</button>
             </nz-form-control>
           </nz-form-item>
     </form>
 </div>
+</body>
