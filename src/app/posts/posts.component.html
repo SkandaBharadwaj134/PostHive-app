@@ -1,2 +1,67 @@
-<p>posts works!</p>
-<button nz-button nzDanger nzType="primary">hrt</button>
+<div class="background">
+<div class="container">
+  <h1 class="mb-4 mt-2">Blog Articles</h1>
+  <button nzButton class="btn btn-success" [routerLink]="['/posts/new']">
+    New Article
+  </button>
+  <button nzButton class="btn btn-danger" [routerLink]="['/auth']" style="float: right;">
+    Logout
+  </button>
+  <div nz-col nzXs="20" nzSm="20" nzMd="6" nzLg="10" nzXl="10" class="mt-3">
+    <nz-input-group nzSearch [nzPrefix]="suffixIconSearch">
+      <input
+        type="text"
+        nz-input
+        placeholder="Search Posts"
+        [(ngModel)]="searchItem"
+        (keyup)="searchPost(searchItem)"
+      />
+    </nz-input-group>
+
+    <ng-template #suffixIconSearch>
+      <span
+        nz-icon
+        nzType="search"
+        style="font-size: large; margin-right: 10px"
+      ></span>
+    </ng-template>
+  </div>
+  <div class="card-body">
+  <div class="card mt-4" *ngFor="let post of posts; index as idx" >
+    <div class="card-body">
+      <h4 class="card-title mb-3">{{ post.title }}</h4>
+      <div class="card-subtitle text-muted mb-3">
+        {{ post.createdAt | date : "medium" }}
+      </div>
+      <div class="card-text mb-2">{{ post.description }}</div>
+      <button
+        class="btn btn-primary"
+        style="margin-right: 5px"
+        [routerLink]="['/posts/', post._id]"
+      >
+        Read More
+      </button>
+      <button
+        class="btn btn-info"
+        style="margin-right: 5px"
+        (click)="editPost(post._id)"
+      >
+        Edit
+      </button>
+      <button
+        type="submit"
+        class="btn btn-danger"
+        style="margin-right: 5px"
+        nz-popconfirm="Are you sure?"
+        (nzOnConfirm)="deletePost(post._id,idx)"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+  </div>
+  <div class="mt-4" style="float: right;">
+  <nz-pagination [(nzPageSize)]="limit" [nzPageIndex]="page" [nzTotal]="totalPostCount" (nzPageIndexChange)="onQueryParamsChange($event)" ></nz-pagination>
+</div>
+</div>
+</div>

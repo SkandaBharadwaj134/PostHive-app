@@ -1,0 +1,15 @@
+<div class="background">
+<div class="container">
+    <h1 class="mb-1">{{post.title}}</h1>
+    <div class="text-muted mb-2">
+        {{post.createdAt | date: 'medium'}}
+    </div>
+    <button class="btn btn-secondary" [routerLink]="['/posts']">All Articles</button>
+    
+    <div style="font-size: 30px;">
+        {{post.description}}
+    </div>
+    <div [innerHTML]="post.sanitizedHtml" style="font-size: 30px;"></div>
+    
+</div>
+</div>

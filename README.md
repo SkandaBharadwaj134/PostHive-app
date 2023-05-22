@@ -25,6 +25,8 @@
 		comments schema - _id, commentId, postId, authorId, authorName, createdAt, commentText, likes, parentCommentId
 
 		Enhancements - sort comments by most upvoted, search comments by commentText. Collapse thread, expand thread of comments
+### Basic Chatting feature between two users??
+### Markdown Support??
 
 ### Tech Stack:
   Frontend: Angular NG Zorro  
